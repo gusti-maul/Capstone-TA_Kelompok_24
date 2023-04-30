@@ -58,10 +58,10 @@ class LoginController extends Controller
                 return redirect()->route('kepsek.dashboard');
             } else if (auth()->user()->role == 'Siswa') {
                 return redirect()->route('siswa.dashboard');
-            } 
+            }
         } else {
             return redirect()->route('login')
-                ->with('error', 'Email-Address And Password Are Wrong.');
+                ->with('error', 'Login Failed, Email-Address And Password Are Wrong.');
         }
     }
 }
