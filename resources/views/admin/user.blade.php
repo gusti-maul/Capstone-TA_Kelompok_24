@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 @extends('dashboard.layouts.main')
 @section('container')
 <div class="main-panel">
