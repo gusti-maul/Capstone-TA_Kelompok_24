@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('tapel', function (Blueprint $table) {
             $table->id();
-        
-
             $table->timestamps();
         });
     }

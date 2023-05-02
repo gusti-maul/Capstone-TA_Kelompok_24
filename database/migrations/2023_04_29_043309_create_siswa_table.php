@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('pekerjaan_ibu')->nullable();
             $table->string('pekerjaan_wali')->nullable();
             $table->text('alamat');
+            $table->text('avatar')->nullable();
             $table->timestamps();
         });
     }

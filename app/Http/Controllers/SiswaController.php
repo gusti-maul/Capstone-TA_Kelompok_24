@@ -8,8 +8,8 @@ class SiswaController extends Controller
 {
     public function index()
     {
-        $data_siswa = \App\Models\Siswa::all();
-        return view("siswa.siswa", ['data_siswa' => $data_siswa]);
+        $siswa = \App\Models\Siswa::all();
+        return view("siswa.siswa", ['siswa' => $siswa]);
     }
     public function register()
     {
@@ -33,4 +33,37 @@ class SiswaController extends Controller
         $siswa = \App\Models\Siswa::create($request->all());
         return redirect('/siswa')->with('success', 'Siswa has been added!');
     }
+
+    public function edit($id)
+    {
+        $siswa = \App\Models\Siswa::find($id);
+        return view('/siswa/edit', ['siswa' => $siswa]);
+    }
+
+    public function update(Request $request, $id)
+    {
+    
+        $siswa = \App\Models\Siswa::find($id);
+        $siswa->update($request->all());
+        if($request->hasFile('avatar')){
+            $request->file('avatar')->move('images/', $request->file('avatar')->getClientOriginalName());
+            $siswa->avatar = $request->file('avatar')->getClientOriginalName();
+            $siswa->save();
+        }
+        return redirect('/siswa')->with('success', 'User has been Updated');
+    }
+
+    public function profile($id)
+    {
+        $siswa = \App\Models\Siswa::find($id);
+        return view("siswa.profile", ['siswa' => $siswa]);
+    }
+
+    public function delete($id)
+    {
+        $siswa = \App\Models\Siswa::find($id);
+        $siswa->delete($siswa);
+        return redirect('/siswa')->with('success', 'User has been delete');
+    }
+
 }

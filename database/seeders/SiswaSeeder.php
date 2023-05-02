@@ -16,7 +16,6 @@ class SiswaSeeder extends Seeder
         $date = Carbon::parse('2022-05-20');
         DB::table('Siswa')->insert([
             'nama_lengkap' => 'Syahrul Ramadhan',
-            // 'username' => 'syahrulrama17',
             'jenis_kelamin' => 'Laki-Laki',
             'tanggal_lahir' => $date ,
             'agama' => 'Islam',
