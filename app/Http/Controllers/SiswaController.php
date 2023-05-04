@@ -42,10 +42,10 @@ class SiswaController extends Controller
 
     public function update(Request $request, $id)
     {
-    
+
         $siswa = \App\Models\Siswa::find($id);
         $siswa->update($request->all());
-        if($request->hasFile('avatar')){
+        if ($request->hasFile('avatar')) {
             $request->file('avatar')->move('images/', $request->file('avatar')->getClientOriginalName());
             $siswa->avatar = $request->file('avatar')->getClientOriginalName();
             $siswa->save();
@@ -59,6 +59,14 @@ class SiswaController extends Controller
         return view("siswa.profile", ['siswa' => $siswa]);
     }
 
+    public function nilai($id)
+    {
+        $siswa = \App\Models\Siswa::find($id);
+        $matapelelajaran = \App\Models\Mapel::all();
+        // dd($mapel);
+        return view("nilai.nilai", ['siswa' => $siswa, 'matapelelajaran' => $matapelelajaran]);
+    }
+
     public function delete($id)
     {
         $siswa = \App\Models\Siswa::find($id);
@@ -66,4 +74,13 @@ class SiswaController extends Controller
         return redirect('/siswa')->with('success', 'User has been delete');
     }
 
+    public function addnilai(Request $request, $idsiswa)
+    {
+        $siswa = \App\Models\Siswa::find($idsiswa);
+        if($siswa->mapel()->where('mapel_id',$request->mapel)->exists()){
+        return redirect('siswa/' . $idsiswa . '/nilai')->with('error', 'Mata pelajaran sudah ada');
+        }
+        $siswa->mapel()->attach($request->mapel, ['nilai_pengetahuan'=> $request->nilai_pengetahuan, 'nilai_keterampilan' => $request->nilai_keterampilan]);
+        return redirect('siswa/' . $idsiswa . '/nilai')->with('success', 'niai berhasil di input');
+    }
 }

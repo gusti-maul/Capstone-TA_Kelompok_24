@@ -140,6 +140,8 @@
        });
    </script>
    
+
+   <!-- widget di dashboard -->
    <script>
        var doughnutChart = document.getElementById('doughnutChart').getContext('2d');
        var myDoughnutChart = new Chart(doughnutChart, {
@@ -173,6 +175,8 @@
            }
        });
    </script>
+
+   @yield('footer')
    </body>
 
    </html>

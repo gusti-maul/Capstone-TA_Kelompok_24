@@ -12,7 +12,7 @@ class Siswa extends Model
 
     public function mapel()
     {
-        return $this->belongsToMany(mapel::class);
+        return $this->belongsToMany(mapel::class)->withPivot(['nilai_pengetahuan', 'nilai_keterampilan'])->withTimestamps();
     }
 
     public function getAvatar()

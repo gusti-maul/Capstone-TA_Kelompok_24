@@ -22,6 +22,7 @@
                                 <tr>
                                     <th class="text-center">Kode Mata Pelajaran</th>
                                     <th class="text-center">Mata Pelajaran</th>
+                                    <th>Nilai Pengetahuan</th>
                                     <th class="text-center" style="width: 10%">Action</th>
                                 </tr>
                             </thead>
@@ -29,6 +30,7 @@
                                 <tr>
                                     <th class="text-center">Kode Mata Pelajaran</th>
                                     <th class="text-center">Mata Pelajaran</th>
+                                    <th>Nilai Pengetahuan</th>
                                     <th class="text-center" style="width: 10%">Action</th>
                                 </tr>
                             </tfoot>
@@ -38,6 +40,7 @@
                                 <tr>
                                     <td>{{$mapel->kode_mapel}}</td>
                                     <td>{{$mapel->mapel}}</td>
+                                    <td></td>
                                     <td>
                                         <div class="form-button-action">
                                             <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Detail" href="#" role="button">

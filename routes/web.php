@@ -62,7 +62,8 @@ Route::middleware(['auth', 'user-access:Admin'])->group(function () {
     Route::get('/siswa/{id}/edit', [SiswaController::class, 'edit']);
     Route::post('/siswa/{id}/update', [SiswaController::class, 'update']);
     Route::get('/siswa/{id}/profile', [SiswaController::class, 'profile']);
-    Route::get('/siswa/{id}/delete', [SiswaController::class, 'delete']);
+    Route::get('/siswa/{id}/nilai', [SiswaController::class, 'nilai']);
+    Route::post('/siswa/{id}/addnilai', [SiswaController::class, 'addnilai']);
 
 
     Route::get('/mapel', [MapelController::class, 'index']);
