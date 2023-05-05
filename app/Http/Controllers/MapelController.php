@@ -11,7 +11,6 @@ class MapelController extends Controller
     {
         $mapel = \App\Models\Mapel::all();
         return view("mapel.index", ['mapel' => $mapel]);
-
     }
 
     public function store(Request $request)

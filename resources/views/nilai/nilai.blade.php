@@ -45,17 +45,6 @@
                                     <th class="text-center" style="width: 10%">Action</th>
                                 </tr>
                             </thead>
-                            <tfoot>
-                                <tr>
-                                    <th class="text-center">Kode Mata Pelajaran</th>
-                                    <th class="text-center">Mata Pelajaran</th>
-                                    <th>Nilai Pengetahuan</th>
-                                    <th>Grade Pengetahuan</th>
-                                    <th>Nilai Keterampilan</th>
-                                    <th>Grade Keterampilan</th>
-                                    <th class="text-center" style="width: 10%">Action</th>
-                                </tr>
-                            </tfoot>
                             <tbody>
                                 @foreach($siswa->mapel as $mapel)
 

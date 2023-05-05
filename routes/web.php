@@ -35,7 +35,7 @@ Route::get('/ex', function () {
 });
 
 
-
+// dgashdgdajdhak
 
 
 // ini route asli
