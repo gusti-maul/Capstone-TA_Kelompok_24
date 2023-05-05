@@ -15,8 +15,8 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('mapel_id');
             $table->unsignedBigInteger('siswa_id');
-            $table->integer('nilai_pengetahuan');
-            $table->integer('nilai_keterampilan');
+            $table->integer('nilai_pengetahuan')->nullable();
+            $table->integer('nilai_keterampilan')->nullable();
             $table->timestamps();
 
             $table->foreign('mapel_id')->references('id')->on('mapel')->onDelete('cascade');

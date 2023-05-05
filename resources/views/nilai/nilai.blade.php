@@ -18,10 +18,18 @@
                         </a>
                     </div>
                 </div>
+
                 <div class="card-header">
-                    <div class="d-flex align-items-center">
-                        <h6 class="">{{$siswa->nama_lengkap}}</h6>
-                    </div>
+                    <form class="form-inline">
+                        <div class="form-group mr-3">
+                            <label for="nama" class="mr-2">Nama:</label>
+                            <input type="text" class="form-control" id="nama" name="nama" value="{{ $siswa->nama_lengkap }}" readonly>
+                        </div>
+                        <div class="form-group mr-3">
+                            <label for="kelas" class="mr-2">Kelas:</label>
+                            <input type="text" class="form-control" id="kelas" name="kelas" value="" readonly>
+                        </div>
+                    </form>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -54,7 +62,7 @@
                                 <tr>
                                     <td>{{$mapel->kode_mapel}}</td>
                                     <td>{{$mapel->mapel}}</td>
-                                    <td class="text-center"><a href="#" id="username" data-type="text" data-pk="{{$mapel->id}}" data-url="/post" data-title="Masukan Nilai Pengetahuan">{{$mapel->pivot->nilai_pengetahuan}}</a></td>
+                                    <td class="text-center"><a href="#" class="nilai_pengetahuan" data-type="number" data-min="0" data-max="100" data-pk="{{$mapel->id}}" data-url="/api/siswa/{{$siswa->id}}/editnilaipengetahuan" data-title="Masukan Nilai Pengetahuan">{{$mapel->pivot->nilai_pengetahuan}}</a></td>
                                     <td class="text-center">
                                         @if ($mapel->pivot->nilai_pengetahuan >= 80)
                                         A
@@ -68,7 +76,7 @@
                                         E
                                         @endif
                                     </td>
-                                    <td class="text-center"><a href="#" id="username" data-type="text" data-pk="{{$mapel->id}}" data-url="/post" data-title="MAsukan Nilai Keterampilan">{{$mapel->pivot->nilai_keterampilan}}</a></td>
+                                    <td class="text-center"><a href="#" class="nilai_keterampilan" data-type="number" data-min="0" data-max="100" data-pk="{{$mapel->id}}" data-url="/api/siswa/{{$siswa->id}}/editnilaiketerampilan" data-title="Masukan Nilai Keterampilan">{{$mapel->pivot->nilai_keterampilan}}</a></td>
                                     <td class="text-center">
                                         @if ($mapel->pivot->nilai_keterampilan >= 80)
                                         A
@@ -84,10 +92,9 @@
                                     </td>
                                     <td>
                                         <div class="form-button-action">
-                                            <a type="button" data-toggle="modal" title="" class="btn btn-link btn-warning btn-lg" data-original-title="Edit" data-target="#exampleModal" role="button">
-                                                <i class="fa fa-edit"></i>
+                                            <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger btn-lg " data-original-title="Hapus" href="/siswa/{{$siswa->id}}/{{$mapel->id}}/deletenilai" role="button" id="delete">
+                                                <i class="flaticon-interface-5"></i>
                                             </a>
-
                                         </div>
                                     </td>
                                 </tr>
@@ -131,7 +138,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group form-group-default">
                                     <label>Nilai Pengetahuan</label>
-                                    <input type="text" name="nilai_pengetahuan" class="form-control @error('nilai_pengetahuan') is-invalid @enderror" id="nilai_pengetahuan" value="{{ old('nilai_pengetahuan') }}" placeholder="Masukan Nilai Pengetahuan Siswa">
+                                    <input type="text" name="nilai_pengetahuan" class="form-control @error('nilai_pengetahuan') is-invalid @enderror" id="nilai_pengetahuan" value="{{ old('nilai_pengetahuan') }}" placeholder="Masukan Nilai Pengetahuan Siswa" required>
                                     @error('nilai_pengetahuan')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -142,7 +149,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group form-group-default">
                                     <label>Nilai Keterampilan</label>
-                                    <input type="text" name="nilai_keterampilan" class="form-control @error('nilai_keterampilan') is-invalid @enderror" id="nilai_keterampilan" value="{{ old('nilai_keterampilan') }}" placeholder="Masukan Nilai Keterampilan Siswa">
+                                    <input type="text" name="nilai_keterampilan" class="form-control @error('nilai_keterampilan') is-invalid @enderror" id="nilai_keterampilan" value="{{ old('nilai_keterampilan') }}" placeholder="Masukan Nilai Keterampilan Siswa" required>
                                     @error('nilai_keterampilan')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -155,15 +162,6 @@
                             <button type="submit" id="addRowButton" class="btn btn-primary">Simpan</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         </div>
-                    </form>
-                    <form id="form-edit-siswa">
-                        <input type="hidden" name="id" id="id-siswa" value="{{ $siswa->id }}">
-                        <div class="form-group">
-                            <label for="nilai-siswa">Nilai Siswa</label>
-                            <input type="text" name="nilai" id="nilai-siswa" class="form-control" value="{{ $siswa->nilai }}">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Update Nilai</button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -172,4 +170,14 @@
     @endsection
     @section('footer')
     <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.nilai_pengetahuan').editable({
+                mode: 'inline',
+            });
+            $('.nilai_keterampilan').editable({
+                mode: 'inline',
+            });
+        });
+    </script>
     @endsection

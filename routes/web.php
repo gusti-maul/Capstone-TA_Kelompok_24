@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardUserAdminController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\SiswaController;
+use App\Models\Mapel;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,10 +65,14 @@ Route::middleware(['auth', 'user-access:Admin'])->group(function () {
     Route::get('/siswa/{id}/profile', [SiswaController::class, 'profile']);
     Route::get('/siswa/{id}/nilai', [SiswaController::class, 'nilai']);
     Route::post('/siswa/{id}/addnilai', [SiswaController::class, 'addnilai']);
+    Route::get('/siswa/{id}/delete', [SiswaController::class, 'delete']);
+    Route::get('/siswa/{id}/{idmapel}/deletenilai', [SiswaController::class, 'deletenilai']);
 
 
     Route::get('/mapel', [MapelController::class, 'index']);
-    Route::post('/mapel/create', [MapelController::class, 'create']);
+    Route::get('/mapel/create', [MapelController::class, 'create']);
+    Route::Post('/mapel', [MapelController::class, 'store']);
+    Route::get('/mapel/{id}/delete', [MapelController::class, 'delete']);
 });
 
 //Guru Routes List

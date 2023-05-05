@@ -27,7 +27,7 @@
                                     <th class="text-center" style="width: 10%">Action</th>
                                 </tr>
                             </thead>
-                            <tfoot>
+                            <!-- <tfoot>
                                 <tr>
                                     <th class="text-center">Nama</th>
                                     <th class="text-center">Username</th>
@@ -35,7 +35,7 @@
                                     <th class="text-center">Role</th>
                                     <th class="text-center">Action</th>
                                 </tr>
-                            </tfoot>
+                            </tfoot> -->
 
                             <tbody>
                                 @foreach($daftar_user as $daftar)

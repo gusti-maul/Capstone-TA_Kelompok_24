@@ -40,7 +40,7 @@
                  <li class="nav-item {{ Request::is('siswa/dashboard*') ? 'active' : ''}}">
                      <a class=" nav-link" href=/siswa/dashboard>
                          <i class="fas fa-home"></i>
-                         <p>Dashboard</p>
+                         <p>Dashboard Siswa</p>
 
                      </a>
 

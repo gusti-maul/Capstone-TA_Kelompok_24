@@ -96,14 +96,14 @@
                  <li class="nav-item">
                      <a data-toggle="collapse" href="#forms">
                          <i class="fas fa-pen-square"></i>
-                         <p>Forms</p>
+                         <p>Kelas</p>
                          <span class="caret"></span>
                      </a>
                      <div class="collapse" id="forms">
                          <ul class="nav nav-collapse">
                              <li>
-                                 <a href="forms/forms.html">
-                                     <span class="sub-item">Basic Form</span>
+                                 <a href="/kelas">
+                                     <span class="sub-item">Kelas</span>
                                  </a>
                              </li>
                          </ul>
@@ -146,6 +146,16 @@
                              <li>
                                  <a href="/siswa">
                                      <span class="sub-item">Siswa</span>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="/guru">
+                                     <span class="sub-item">Guru</span>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="/kepala_sekolah">
+                                     <span class="sub-item">Kepala Sekolah</span>
                                  </a>
                              </li>
                          </ul>

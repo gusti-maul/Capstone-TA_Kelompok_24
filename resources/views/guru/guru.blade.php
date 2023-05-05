@@ -9,7 +9,7 @@
                 <div class="card-header">
                     <nav aria-label="breadcrumb" class="main-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item active"><a>Siswa</a></li>
+                            <li class="breadcrumb-item active"><a>Guru</a></li>
                         </ol>
                     </nav>
                     <div class="d-flex align-items-center">
@@ -47,11 +47,10 @@
                                     <tr>
                                         <td>{{ $no++ }}</td>
                                         <td>
-                                            <img src="{{$siswa->getAvatar()}}" height="75" width="75">
                                         </td>
-                                        <td>{{$siswa->nama_lengkap}}</td>
-                                        <td>{{$siswa->jenis_kelamin}}</td>
-                                        <td>{{$siswa->tanggal_lahir}}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                         <td></td>
                                         <!-- <td>{{$siswa->agama}}</td> -->
                                         <!-- <td>{{$siswa->nama_ayah}}</td>
@@ -63,20 +62,20 @@
                                     <td>{{$siswa->alamat}}</td> -->
                                         <td>
                                             <div class="form-button-action">
-                                                <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Lihaat Nilai" href="/siswa/{{$siswa->id}}/nilai" role="button">
+                                                <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Lihaat Nilai" href="/siswa/{{->id}}/nilai" role="button">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="form-button-action">
-                                                <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Detail" href="/siswa/{{$siswa->id}}/profile" role="button">
+                                                <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Detail" href="/siswa/{{->id}}/profile" role="button">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
-                                                <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-warning btn-lg" data-original-title="Edit" href="/siswa/{{$siswa->id}}/edit" role="button">
+                                                <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-warning btn-lg" data-original-title="Edit" href="/siswa/{{->id}}/edit" role="button">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger btn-lg " data-original-title="Hapus" href="/siswa/{{$siswa->id}}/delete" role="button" id="delete">
+                                                <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger btn-lg " data-original-title="Hapus" href="/siswa/{{->id}}/delete" role="button" id="delete">
                                                     <i class="flaticon-interface-5"></i>
                                                 </a>
                                             </div>
