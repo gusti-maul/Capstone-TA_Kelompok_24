@@ -34,10 +34,6 @@ Route::get('/ex', function () {
     return view('ex');
 });
 
-
-// dgashdgdajdhak
-
-
 // ini route asli
 Auth::routes();
 
