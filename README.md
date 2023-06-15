@@ -1,3 +1,4 @@
-<h1>Kelompok 3B<h1>
+<h1>Kelompok 24<h1>
 
-_Dilarang push ke MASTER/MAIN!, setiap orang membuat branch masing-masing :D_
+Website Sistem Informasi Akademik SMA Negeri 1 Sokaraja
+
